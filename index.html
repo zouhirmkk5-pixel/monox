@@ -70,9 +70,7 @@ backdrop-filter:blur(12px);
 box-shadow:0 15px 30px rgba(0,0,0,.45);
 }
 
-.card:hover{
-transform:translateY(-6px);
-}
+.card:hover{transform:translateY(-6px);}
 
 .card img{
 width:100%;
@@ -150,6 +148,13 @@ border-radius:16px;
 background:rgba(255,255,255,.04);
 }
 
+.opt{
+font-size:14px;
+font-weight:700;
+letter-spacing:0.5px;
+opacity:0.9;
+}
+
 .option button,.back{
 border:none;
 cursor:pointer;
@@ -169,7 +174,7 @@ margin-top:16px;
 background:#1f2937;
 }
 
-/* LOCKER MODAL */
+/* LOCKER */
 #lockerModal{
 position:fixed;
 inset:0;
@@ -229,7 +234,7 @@ font-weight:bold;
 <div class="grid" id="grid">
 
 <div class="card" onclick="openOffer('ROBLOX $100 CARD', this)">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Roblox_Logo_2022.svg">
+<img src="https://logos-world.net/wp-content/uploads/2020/10/Roblox-Logo.png">
 <div class="name">ROBLOX</div>
 <div class="price">$100 Gift Card</div>
 <div class="tag">Popular</div>
@@ -284,12 +289,12 @@ font-weight:bold;
 <div id="selectedTitle"></div>
 
 <div class="option">
-<div>Access Option 1</div>
+<div class="opt">Fast Verification</div>
 <button onclick="go()">Start</button>
 </div>
 
 <div class="option">
-<div>Access Option 2</div>
+<div class="opt">Backup Option</div>
 <button onclick="go()">Start</button>
 </div>
 
@@ -298,7 +303,6 @@ font-weight:bold;
 </div>
 </div>
 
-<!-- LOCKER MODAL -->
 <div id="lockerModal">
 <div class="lockerBox">
 <iframe id="lockerFrame"></iframe>
@@ -322,7 +326,7 @@ document.getElementById("offerPage").style.display="block";
 document.getElementById("selectedTitle").innerText=title;
 document.getElementById("selectedImage").src=img;
 window.scrollTo({top:0,behavior:"smooth"});
-},1000);
+},900);
 }
 
 function go(){
