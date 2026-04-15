@@ -9,6 +9,7 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
 font-family:'Inter',sans-serif;
 background:#050505;
@@ -29,7 +30,7 @@ radial-gradient(circle at 50% 85%,rgba(34,197,94,.10),transparent 25%);
 z-index:-2;
 }
 
-/* HEADER */
+/* header */
 .header{text-align:center;padding:34px 15px 20px}
 .title{
 font-size:34px;
@@ -40,13 +41,13 @@ background:linear-gradient(90deg,#fff,#60a5fa,#a855f7);
 }
 .sub{margin-top:10px;font-size:14px;opacity:.65}
 
-/* GRID */
+/* grid */
 .grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:18px;
 padding:18px;
-max-width:580px;
+max-width:600px;
 margin:auto;
 }
 
@@ -59,6 +60,7 @@ cursor:pointer;
 transition:.25s;
 backdrop-filter:blur(12px);
 }
+
 .card:hover{transform:translateY(-6px)}
 
 .card img{
@@ -74,15 +76,17 @@ border-radius:18px;
 .price{margin-top:6px;font-size:13px;opacity:.75}
 .tag{margin-top:10px;font-size:11px;opacity:.8}
 
-/* OFFER */
+/* offer page */
 .offerPage{display:none;padding:20px}
+
 .box{
-max-width:540px;
+max-width:520px;
 margin:auto;
 background:rgba(255,255,255,.05);
 border-radius:24px;
 padding:22px;
 }
+
 .selectedImage{
 width:100%;
 height:190px;
@@ -91,10 +95,11 @@ background:#fff;
 border-radius:18px;
 padding:18px;
 }
-#selectedTitle{font-size:28px;font-weight:800;margin-top:10px}
+
+#selectedTitle{font-size:26px;font-weight:800;margin-top:10px}
 .desc{font-size:14px;opacity:.7;margin:10px 0}
 
-/* BUTTONS */
+/* buttons */
 .option{
 display:flex;
 justify-content:space-between;
@@ -104,6 +109,7 @@ margin-top:12px;
 border-radius:16px;
 background:rgba(255,255,255,.04);
 }
+
 .option button{
 background:linear-gradient(90deg,#22c55e,#16a34a);
 border:none;
@@ -125,7 +131,7 @@ border:none;
 cursor:pointer;
 }
 
-/* LOCKER MODAL */
+/* locker */
 .locker{
 position:fixed;
 inset:0;
@@ -135,6 +141,7 @@ justify-content:center;
 align-items:center;
 z-index:999;
 }
+
 .lockerBox{
 background:#111;
 padding:25px;
@@ -143,7 +150,9 @@ text-align:center;
 width:90%;
 max-width:360px;
 }
+
 .lockerBox h2{margin-bottom:10px}
+
 .lockerBox button{
 margin-top:15px;
 width:100%;
@@ -172,34 +181,49 @@ cursor:pointer;
 <div class="sub">Select your card and continue</div>
 </div>
 
+<!-- GRID -->
 <div class="grid" id="grid">
 
-<div class="card" onclick="openOffer('ROBLOX $100 CARD', this)">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Roblox_Logo.svg" alt="Roblox">
+<div class="card" onclick="openOffer('ROBLOX $100 CARD',this)">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Roblox_Logo.svg">
 <div class="name">ROBLOX</div>
 <div class="price">$100 Gift Card</div>
 <div class="tag">Popular</div>
 </div>
 
-<div class="card" onclick="openOffer('PLAYSTATION $50 CARD', this)">
+<div class="card" onclick="openOffer('PLAYSTATION $50 CARD',this)">
 <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/PlayStation_logo.svg">
 <div class="name">PLAYSTATION</div>
 <div class="price">$50 Gift Card</div>
 <div class="tag">Top</div>
 </div>
 
-<div class="card" onclick="openOffer('AMAZON $50 CARD', this)">
+<div class="card" onclick="openOffer('AMAZON $50 CARD',this)">
 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg">
 <div class="name">AMAZON</div>
 <div class="price">$50 Gift Card</div>
 <div class="tag">Trending</div>
 </div>
 
-<div class="card" onclick="openOffer('APPLE $100 CARD', this)">
+<div class="card" onclick="openOffer('APPLE $100 CARD',this)">
 <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
 <div class="name">APPLE</div>
 <div class="price">$100 Gift Card</div>
 <div class="tag">Premium</div>
+</div>
+
+<div class="card" onclick="openOffer('GOOGLE PLAY $50 CARD',this)">
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg">
+<div class="name">GOOGLE PLAY</div>
+<div class="price">$50 Gift Card</div>
+<div class="tag">New</div>
+</div>
+
+<div class="card" onclick="openOffer('NETFLIX $50 CARD',this)">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg">
+<div class="name">NETFLIX</div>
+<div class="price">$50 Gift Card</div>
+<div class="tag">Hot</div>
 </div>
 
 </div>
@@ -207,6 +231,7 @@ cursor:pointer;
 <!-- OFFER PAGE -->
 <div class="offerPage" id="offerPage">
 <div class="box">
+
 <img id="selectedImage" class="selectedImage">
 <div id="selectedTitle"></div>
 <div class="desc">Unlock your access below</div>
@@ -214,20 +239,21 @@ cursor:pointer;
 <div class="option">
 <div>
 <strong>Access Option</strong>
-<span style="display:block;opacity:.7;font-size:12px">Continue process</span>
+<span style="display:block;font-size:12px;opacity:.7">Continue process</span>
 </div>
 <button onclick="openLocker()">Start</button>
 </div>
 
 <button class="back" onclick="backPage()">← Back</button>
+
 </div>
 </div>
 
 <!-- LOCKER -->
 <div class="locker" id="locker">
 <div class="lockerBox">
-<h2>Unlocking...</h2>
-<p>Please wait a moment</p>
+<h2>Unlock Required</h2>
+<p>Complete the step to continue</p>
 <button onclick="finish()">Continue</button>
 </div>
 </div>
@@ -254,7 +280,7 @@ document.getElementById("locker").style.display="flex";
 
 function finish(){
 document.getElementById("locker").style.display="none";
-alert("Unlocked successfully ✔");
+alert("Done ✔");
 }
 </script>
 
