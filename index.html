@@ -75,23 +75,19 @@ transform:translateY(-6px);
 box-shadow:0 22px 35px rgba(0,0,0,.55);
 }
 
-.card img{
+/* ROBLOX TEXT ONLY */
+.robloxTextBox{
 width:100%;
 height:125px;
-object-fit:contain;
+display:flex;
+align-items:center;
+justify-content:center;
 background:#fff;
-padding:14px;
 border-radius:18px;
-}
-
-/* ROBLOX SAFE IMAGE */
-.robloxImg{
-width:100%;
-height:125px;
-object-fit:contain;
-background:#fff;
-padding:14px;
-border-radius:18px;
+font-size:26px;
+font-weight:900;
+letter-spacing:2px;
+color:#000;
 }
 
 /* TEXT */
@@ -240,11 +236,9 @@ opacity:.45;
 
 <div class="grid" id="grid">
 
-<!-- ROBLOX FIX FINAL -->
+<!-- ROBLOX FIXED (TEXT ONLY) -->
 <div class="card" onclick="openOffer('ROBLOX $100 CARD', this)">
-<img class="robloxImg" src="https://i.imgur.com/3QKX6bM.png" 
-onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/5/5a/Roblox_Logo_2022.svg'">
-
+<div class="robloxTextBox">ROBLOX</div>
 <div class="name">ROBLOX</div>
 <div class="price">$100 Gift Card</div>
 <div class="tag">Popular</div>
@@ -295,7 +289,7 @@ onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/comm
 <div class="offerPage" id="offerPage">
 <div class="box">
 
-<img id="selectedImage" class="selectedImage">
+<div id="selectedImage" class="robloxTextBox" style="font-size:40px;">ROBLOX</div>
 
 <div id="selectedTitle"></div>
 <div class="desc">Available options for your selected card</div>
@@ -336,7 +330,7 @@ onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/comm
 
 <script>
 function openOffer(title,el){
-const img = el.querySelector("img") ? el.querySelector("img").src : "";
+const box = el.querySelector(".robloxTextBox");
 
 document.getElementById("loading").style.display="flex";
 
@@ -345,7 +339,9 @@ document.getElementById("loading").style.display="none";
 document.getElementById("grid").style.display="none";
 document.getElementById("offerPage").style.display="block";
 document.getElementById("selectedTitle").innerText=title;
-document.getElementById("selectedImage").src=img;
+
+document.getElementById("selectedImage").innerText = box ? "ROBLOX" : title;
+
 window.scrollTo({top:0,behavior:"smooth"});
 },900);
 }
