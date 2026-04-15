@@ -84,21 +84,17 @@ padding:14px;
 border-radius:18px;
 }
 
-/* ROBLOX SIMPLE */
-.robloxBox{
+/* ROBLOX IMAGE FIX */
+.robloxImg{
 width:100%;
 height:125px;
-display:flex;
-align-items:center;
-justify-content:center;
+object-fit:contain;
 background:#fff;
+padding:14px;
 border-radius:18px;
-font-size:22px;
-font-weight:900;
-letter-spacing:2px;
-color:#000;
 }
 
+/* OTHER STYLES */
 .name{margin-top:12px;font-size:15px;font-weight:800}
 .price{margin-top:6px;font-size:13px;opacity:.75}
 .tag{
@@ -245,11 +241,10 @@ opacity:.45;
 <div class="sub">Select your card and continue</div>
 </div>
 
-<!-- GRID -->
 <div class="grid" id="grid">
 
 <div class="card" onclick="openOffer('ROBLOX $100 CARD', this)">
-<div class="robloxBox">ROBLOX</div>
+<img class="robloxImg" src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Roblox_Logo_2022.svg">
 <div class="name">ROBLOX</div>
 <div class="price">$100 Gift Card</div>
 <div class="tag">Popular</div>
@@ -292,13 +287,11 @@ opacity:.45;
 
 </div>
 
-<!-- LOADING -->
 <div class="loading" id="loading">
 <div class="spinner"></div>
 <p style="margin-top:15px;opacity:.8;">Loading...</p>
 </div>
 
-<!-- OFFER -->
 <div class="offerPage" id="offerPage">
 <div class="box">
 
@@ -328,7 +321,6 @@ opacity:.45;
 </div>
 </div>
 
-<!-- LOCKER -->
 <div id="locker">
 <div class="lockerBox">
 <h3>Access Locked</h3>
