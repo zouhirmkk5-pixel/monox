@@ -17,7 +17,7 @@ overflow-x:hidden;
 min-height:100vh;
 }
 
-/* BACKGROUND */
+/* background */
 body::before{
 content:"";
 position:fixed;
@@ -26,17 +26,8 @@ background:
 radial-gradient(circle at 15% 20%,rgba(59,130,246,.16),transparent 25%),
 radial-gradient(circle at 85% 25%,rgba(168,85,247,.12),transparent 25%),
 radial-gradient(circle at 50% 85%,rgba(34,197,94,.10),transparent 25%);
-animation:bgMove 10s ease-in-out infinite alternate;
 z-index:-2;
 }
-body::after{
-content:"";
-position:fixed;
-inset:0;
-background:linear-gradient(135deg,#000,#0b0b0b,#000);
-z-index:-3;
-}
-@keyframes bgMove{100%{transform:scale(1.12) translateY(-18px);}}
 
 /* HEADER */
 .header{text-align:center;padding:34px 15px 20px}
@@ -59,170 +50,117 @@ max-width:580px;
 margin:auto;
 }
 
-/* CARD */
 .card{
-background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-border:1px solid rgba(255,255,255,.06);
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
 border-radius:24px;
 padding:14px;
 cursor:pointer;
-transition:.25s ease;
+transition:.25s;
 backdrop-filter:blur(12px);
-box-shadow:0 15px 30px rgba(0,0,0,.45);
 }
-.card:hover{
-transform:translateY(-6px);
-box-shadow:0 22px 35px rgba(0,0,0,.55);
-}
+.card:hover{transform:translateY(-6px)}
 
-/* ROBLOX TEXT ONLY */
-.robloxTextBox{
+.card img{
 width:100%;
 height:125px;
-display:flex;
-align-items:center;
-justify-content:center;
+object-fit:contain;
 background:#fff;
+padding:14px;
 border-radius:18px;
-font-size:26px;
-font-weight:900;
-letter-spacing:2px;
-color:#000;
 }
 
-/* TEXT */
 .name{margin-top:12px;font-size:15px;font-weight:800}
 .price{margin-top:6px;font-size:13px;opacity:.75}
-.tag{
-display:inline-block;
-margin-top:10px;
-padding:6px 10px;
-border-radius:999px;
-font-size:11px;
-background:rgba(96,165,250,.14);
-color:#93c5fd;
-}
-
-/* LOADING */
-.loading{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.92);
-display:none;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:999;
-}
-.spinner{
-width:62px;height:62px;
-border-radius:50%;
-border:4px solid rgba(255,255,255,.08);
-border-top:4px solid #60a5fa;
-animation:spin 1s linear infinite;
-}
-@keyframes spin{100%{transform:rotate(360deg)}}
+.tag{margin-top:10px;font-size:11px;opacity:.8}
 
 /* OFFER */
 .offerPage{display:none;padding:20px}
 .box{
 max-width:540px;
 margin:auto;
-background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-border:1px solid rgba(255,255,255,.06);
+background:rgba(255,255,255,.05);
 border-radius:24px;
 padding:22px;
-box-shadow:0 15px 30px rgba(0,0,0,.45);
 }
 .selectedImage{
 width:100%;
 height:190px;
 object-fit:contain;
 background:#fff;
-padding:18px;
 border-radius:18px;
-margin-bottom:16px;
+padding:18px;
 }
-#selectedTitle{font-size:28px;font-weight:800}
-.desc{font-size:14px;opacity:.72;margin:8px 0 18px}
+#selectedTitle{font-size:28px;font-weight:800;margin-top:10px}
+.desc{font-size:14px;opacity:.7;margin:10px 0}
 
+/* BUTTONS */
 .option{
 display:flex;
 justify-content:space-between;
 align-items:center;
-gap:12px;
 padding:15px;
 margin-top:12px;
 border-radius:16px;
 background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.05);
-}
-.option button,.back{
-border:none;
-cursor:pointer;
-font-weight:700;
-border-radius:12px;
-padding:11px 16px;
-color:#fff;
 }
 .option button{
 background:linear-gradient(90deg,#22c55e,#16a34a);
+border:none;
+padding:10px 14px;
+color:#fff;
+border-radius:10px;
+cursor:pointer;
+font-weight:700;
 }
+
 .back{
 width:100%;
 margin-top:16px;
-background:#1f2937;
-}
-
-/* LOCKER */
-#locker{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.9);
-justify-content:center;
-align-items:center;
-z-index:9999;
-}
-.lockerBox{
-background:#111;
-padding:20px;
-border-radius:18px;
-max-width:360px;
-width:90%;
-text-align:center;
-border:1px solid rgba(255,255,255,.1);
-}
-.lockerBox h3{margin-bottom:10px}
-.lockerBox p{opacity:.7;font-size:13px;margin-bottom:15px}
-.lockerBox iframe{
-width:100%;
-height:300px;
-border:0;
+padding:12px;
 border-radius:12px;
-}
-.closeBtn{
-margin-top:10px;
-padding:10px 14px;
-border:none;
-border-radius:10px;
-background:#ef4444;
+background:#1f2937;
 color:#fff;
+border:none;
 cursor:pointer;
 }
 
-/* FOOTER */
-.footer{
-text-align:center;
-padding:26px;
-font-size:12px;
-opacity:.45;
+/* LOCKER MODAL */
+.locker{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:999;
 }
+.lockerBox{
+background:#111;
+padding:25px;
+border-radius:18px;
+text-align:center;
+width:90%;
+max-width:360px;
+}
+.lockerBox h2{margin-bottom:10px}
+.lockerBox button{
+margin-top:15px;
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+background:linear-gradient(90deg,#3b82f6,#8b5cf6);
+color:#fff;
+font-weight:700;
+cursor:pointer;
+}
+
+/* footer */
+.footer{text-align:center;padding:26px;font-size:12px;opacity:.45}
 
 @media(max-width:480px){
 .grid{grid-template-columns:1fr}
-.title{font-size:28px}
-#selectedTitle{font-size:23px}
 }
 </style>
 </head>
@@ -236,9 +174,8 @@ opacity:.45;
 
 <div class="grid" id="grid">
 
-<!-- ROBLOX FIXED (TEXT ONLY) -->
 <div class="card" onclick="openOffer('ROBLOX $100 CARD', this)">
-<div class="robloxTextBox">ROBLOX</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Roblox_Logo.svg" alt="Roblox">
 <div class="name">ROBLOX</div>
 <div class="price">$100 Gift Card</div>
 <div class="tag">Popular</div>
@@ -265,64 +202,33 @@ opacity:.45;
 <div class="tag">Premium</div>
 </div>
 
-<div class="card" onclick="openOffer('GOOGLE PLAY $50 CARD', this)">
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg">
-<div class="name">GOOGLE PLAY</div>
-<div class="price">$50 Gift Card</div>
-<div class="tag">New</div>
 </div>
 
-<div class="card" onclick="openOffer('NETFLIX $50 CARD', this)">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg">
-<div class="name">NETFLIX</div>
-<div class="price">$50 Gift Card</div>
-<div class="tag">Hot</div>
-</div>
-
-</div>
-
-<div class="loading" id="loading">
-<div class="spinner"></div>
-<p style="margin-top:15px;opacity:.8;">Loading...</p>
-</div>
-
+<!-- OFFER PAGE -->
 <div class="offerPage" id="offerPage">
 <div class="box">
-
-<div id="selectedImage" class="robloxTextBox" style="font-size:40px;">ROBLOX</div>
-
+<img id="selectedImage" class="selectedImage">
 <div id="selectedTitle"></div>
-<div class="desc">Available options for your selected card</div>
+<div class="desc">Unlock your access below</div>
 
 <div class="option">
-<div class="optionText">
-<strong>Access Option 1</strong>
-<span>Continue now</span>
+<div>
+<strong>Access Option</strong>
+<span style="display:block;opacity:.7;font-size:12px">Continue process</span>
 </div>
-<button onclick="go()">Start</button>
-</div>
-
-<div class="option">
-<div class="optionText">
-<strong>Access Option 2</strong>
-<span>Fast method</span>
-</div>
-<button onclick="go()">Start</button>
+<button onclick="openLocker()">Start</button>
 </div>
 
 <button class="back" onclick="backPage()">← Back</button>
-
 </div>
 </div>
 
-<div id="locker">
+<!-- LOCKER -->
+<div class="locker" id="locker">
 <div class="lockerBox">
-<h3>Access Locked</h3>
-<p>Complete the step to continue</p>
-
-<iframe src="https://authenticateapp.online/cl/i/pqq622"></iframe>
-
-<button class="closeBtn" onclick="closeLocker()">Close</button>
+<h2>Unlocking...</h2>
+<p>Please wait a moment</p>
+<button onclick="finish()">Continue</button>
 </div>
 </div>
 
@@ -330,34 +236,25 @@ opacity:.45;
 
 <script>
 function openOffer(title,el){
-const box = el.querySelector(".robloxTextBox");
-
-document.getElementById("loading").style.display="flex";
-
-setTimeout(()=>{
-document.getElementById("loading").style.display="none";
 document.getElementById("grid").style.display="none";
 document.getElementById("offerPage").style.display="block";
+
 document.getElementById("selectedTitle").innerText=title;
-
-document.getElementById("selectedImage").innerText = box ? "ROBLOX" : title;
-
-window.scrollTo({top:0,behavior:"smooth"});
-},900);
-}
-
-function go(){
-document.getElementById("locker").style.display="flex";
-}
-
-function closeLocker(){
-document.getElementById("locker").style.display="none";
+document.getElementById("selectedImage").src=el.querySelector("img").src;
 }
 
 function backPage(){
-document.getElementById("offerPage").style.display="none";
 document.getElementById("grid").style.display="grid";
-window.scrollTo({top:0,behavior:"smooth"});
+document.getElementById("offerPage").style.display="none";
+}
+
+function openLocker(){
+document.getElementById("locker").style.display="flex";
+}
+
+function finish(){
+document.getElementById("locker").style.display="none";
+alert("Unlocked successfully ✔");
 }
 </script>
 
